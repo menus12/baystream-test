@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>APP1</h1>
+    <h2>Welcome {{ user.get("name") }}!</h2>
+
+    {% if config.get("APP2_LOGIN_URL") %}
+      <li><a href='{{ config.get("APP2_LOGIN_URL") }}'>Launch APP2</a></li>
+    {% endif %}
+
+    {% if config.get("B2C_PROFILE_AUTHORITY") %}
+      <li><a href='{{_build_auth_code_flow(authority=config["B2C_PROFILE_AUTHORITY"])["auth_uri"]}}'>Edit Profile</a></li>
+    {% endif %}
+
+    <li><a href="/logout">Exit</a></li>
+</body>
+</html>
+
